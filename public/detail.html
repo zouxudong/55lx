@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cn.avoscloud.com/scripts/lib/av-0.4.1.min.js"></script>
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/config.js"></script>
+</head>
+<body>
+<p class="serviceCon"></p>
+</body>
+<script type="text/javascript">
+    var currentItem = null, pics = {};
+    $(function () {
+        AV.$ = jQuery;
+        var aid = getQueryString("aid");
+        alert(aid);
+        var HD = AV.Object.extend('Article');
+        var query = new AV.Query(HD);
+       // query.equalTo("country", cty);
+        query.equalTo("objectId", aid);
+        query.first({
+            success: function (obj) {
+                if(obj)
+                {
+                    $(".serviceCon").html(obj.get("content"));
+                }
+            },
+            error: function (error) {
+                //alert("Error: " + error.code + " " + error.message);
+            }
+        });
+    });
+</script>
+</html>

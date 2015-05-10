@@ -12,9 +12,6 @@
     <script src="js/jquery-2.0.3.min.js"></script>
     <script src="js/config.js"></script>
 
-    <script>
-
-    </script>
 </head>
 <body>
 <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
@@ -107,6 +104,8 @@
                 success: function(articleObj) {
                     // Execute any logic that should take place after the object is saved.
                     alert('New object created with objectId: ' + articleObj.id);
+                    location.href = "list.html";
+
                 },
                 error: function(articleObj, error) {
                     // Execute any logic that should take place if the save fails.
