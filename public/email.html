@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cn.avoscloud.com/scripts/lib/av-0.4.1.min.js"></script>
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/config.js"></script>
+</head>
+<body>
+<div class="list"></div>
+<script type="text/javascript">
+    var JXJ, list = null, currentItem = null;
+    //   var hid = getQueryString("hid");
+    $(function () {
+        AV.$ = jQuery;
+        JXJ = AV.Object.extend('_User');
+        var query = new AV.Query(JXJ);
+        query.exists("email");
+        query.limit(1000);
+        query.descending("createdAt");
+        // cty = localStorage.getItem("country");
+        // query.equalTo("country", cty);
+        query.find({
+            success: function (results) {
+                list = results;
+                if (results.length <= 0) {
+                    $(".list").text("暂无数据！");
+                    return false;
+                }
+                for (var i = 0; i < results.length; i++) {
+                    var object = results[i];
+                    var housetitle = object.get("email");
+                    var aid = object.id;
+                    //  var uname = object.get("username");
+                    var pubdate = object.createdAt;//object.get("updatedAt");
+                    //var country = getCountry(object.get("country"));
+                    $(".list").append('<ul><li class="w60 title"><a href="#" >' + housetitle + ' &nbsp;' + pubdate + '</a>  </li></ul>');
+                }
+            },
+            error: function (error) {
+                alert("Error: " + error.code + " " + error.message);
+            }
+        });
+
+
+
+    });
+
+</script>
+</body>
+</html>

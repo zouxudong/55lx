@@ -2,8 +2,8 @@
  * Created by zouxudong on 15-5-10.
  */
 
-var appId = '7w25ol9vos571m9r9vz6cobpmi85smwyywenol0bhez3fbyb';
-var appKey = '2sz6a5fhupgvro5xqk0tbd4b6hogye5d25pgommibrq679e1';
+var appId = '9gjslunrzskq7ql7jv75boux71h6lv6ywnn7litgg16l90gz';
+var appKey = 'ymx60j11dq360op3xadwrj9284o60vxi40k42rvsilijl3hf';
 AV.initialize(appId, appKey);
 
 /*获取URL参数*/

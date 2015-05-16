@@ -35,7 +35,7 @@
                         //  var uname = object.get("username");
                         var pubdate = object.createdAt;//object.get("updatedAt");
                         //var country = getCountry(object.get("country"));
-                        $(".list").append('<ul><li class="w60 title"><a href="detail.html?aid='+aid+'" >' + housetitle + '</a>  </li></ul>');
+                        $(".list").append('<ul><li class="w60 title"><a href="detail.html?aid='+aid+'" >' + housetitle + '  ' + pubdate + '</a>  </li></ul>');
                     }
                 },
                 error: function (error) {
